@@ -1,0 +1,2555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>MB Attire - Wear Your Confidence</title>
+  
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Poppins:wght@300;400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- html2canvas for Receipt Picture Download -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+  <!-- Web Fonts Configuration (Modern Romance & Dream Orphans) -->
+  <style>
+    /* Paragraph Font: Dream Orphans */
+    @font-face {
+      font-family: "Dream Orphans";
+      src: url("https://db.onlinewebfonts.com/t/9da14309325c345a55d4c82b4122d152.woff2") format("woff2"),
+           url("https://db.onlinewebfonts.com/t/9da14309325c345a55d4c82b4122d152.woff") format("woff"),
+           url("https://db.onlinewebfonts.com/t/9da14309325c345a55d4c82b4122d152.ttf") format("truetype");
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    /* Heading Font: Modern Romance */
+    @font-face {
+      font-family: "Modern Romance";
+      src: local("Modern Romance"),
+           url("https://db.onlinewebfonts.com/t/e0e9cf1fb89eb264bc86cfca4be426b3.woff2") format("woff2"),
+           url("https://db.onlinewebfonts.com/t/e0e9cf1fb89eb264bc86cfca4be426b3.ttf") format("truetype");
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    /* ==========================================
+       1. BASE RESET & THEME VARIABLES
+    ========================================== */
+    :root {
+      --font-footer-heading: 'Outfit', sans-serif;
+      --font-footer-body: 'Plus Jakarta Sans', sans-serif;
+
+      /* Luxury Gold & Light Palette */
+      --bg-ivory: #faf8f5;
+      --gold-primary: #d4af37;
+      --gold-dark: #916b1f;
+      --gold-gradient: linear-gradient(135deg, #a67c1e 0%, #d4af37 50%, #7d5b12 100%);
+      --glass-card: rgba(255, 255, 255, 0.85);
+      --glass-border: rgba(212, 175, 55, 0.28);
+      --text-dark: #1c1917;
+      --text-muted: #6b7280;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      width: 100%;
+      min-height: 100vh;
+      overflow-x: hidden;
+      background-color: #f8f9fa;
+      color: #333;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* ==========================================
+       2. HERO SECTION & VIDEO
+    ========================================== */
+    .hero {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+      background-color: #050505;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .bg-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
+      pointer-events: none;
+      filter: blur(0px);
+      transform: scale(1.02);
+      transition: filter 0.1s ease-out;
+      will-change: filter, opacity;
+    }
+
+    .scroll-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #050505;
+      opacity: 0;
+      z-index: 2;
+      pointer-events: none;
+      transition: opacity 0.1s ease-out;
+    }
+
+    /* ==========================================
+       3. TOP NAVIGATION (HERO)
+    ========================================== */
+    .navbar {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 25px 40px;
+    }
+
+    .nav-group {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .brand-logo-link {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      background: transparent;
+      padding: 0;
+      margin-right: 5px;
+      transition: transform 0.3s ease;
+    }
+
+    .brand-logo-link:hover {
+      transform: scale(1.06);
+    }
+
+    .brand-logo-img {
+      height: 65px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+      filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.5));
+    }
+
+    .glass-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 24px;
+      border-radius: 50px;
+      text-decoration: none;
+      color: #ffffff;
+      font-size: 13.5px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      text-transform: capitalize;
+      white-space: nowrap;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(25px) saturate(180%);
+      -webkit-backdrop-filter: blur(25px) saturate(180%);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.35), 
+                  inset 0 0 10px rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .glass-pill:hover {
+      background: rgba(255, 255, 255, 0.2);
+      border-color: rgba(255, 255, 255, 0.5);
+      transform: translateY(-2px);
+    }
+
+    .mobile-only { display: none; }
+    .desktop-only { display: inline-flex; }
+
+    /* ==========================================
+       4. BOTTOM HERO TEXT
+    ========================================== */
+    .bottom-section {
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      padding: 140px 40px 40px 40px;
+      background: linear-gradient(
+        to top,
+        rgba(5, 5, 5, 1) 0%,
+        rgba(0, 0, 0, 0.8) 40%,
+        rgba(0, 0, 0, 0.3) 75%,
+        transparent 100%
+      );
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-end;
+      transition: opacity 0.1s ease-out, transform 0.1s ease-out;
+    }
+
+    .box-left {
+      max-width: 480px;
+      text-align: left;
+    }
+
+    .heading-dream {
+      font-family: 'Dream Orphans', 'Syne', sans-serif;
+      font-size: 34px;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 14px;
+      color: #ffffff;
+      text-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+    }
+
+    .content-box p {
+      font-size: 14px;
+      line-height: 1.65;
+      color: rgba(255, 255, 255, 0.85);
+      font-weight: 300;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+    }
+
+    /* ==========================================
+       5. WHAT WE'RE SELLING SECTION
+    ========================================== */
+    #what-we-sell {
+      position: relative;
+      background: #f8f9fa;
+      padding-bottom: 40px;
+    }
+
+    .section-header-bar {
+      background: rgba(255, 255, 255, 0.98);
+      padding: 22px 30px;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.04);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+
+    .section-header-bar h1 {
+      font-family: 'Dream Orphans', 'Poppins', sans-serif;
+      font-size: 34px;
+      font-weight: 700;
+      color: #111;
+      letter-spacing: 0.8px;
+      text-align: center;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-header-bar h1::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 40px;
+      height: 2.5px;
+      background: #111;
+      border-radius: 2px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+
+    .section-title {
+      margin-bottom: 24px;
+      font-size: 24px;
+      font-weight: 600;
+      color: #1a1a1a;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-title::before {
+      content: '';
+      display: inline-block;
+      width: 6px;
+      height: 20px;
+      background: #111;
+      border-radius: 4px;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(265px, 1fr));
+      gap: 24px;
+    }
+
+    .product-card {
+      background: #ffffff;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid #eaeaea;
+      cursor: pointer;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      will-change: transform, filter, opacity;
+      transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+                  filter 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+                  opacity 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+                  box-shadow 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .card-img-wrap {
+      position: relative;
+      width: 100%;
+      height: 360px;
+      overflow: hidden;
+      background: #f2f2f2;
+    }
+
+    .card-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .view-pill {
+      position: absolute;
+      bottom: 14px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: rgba(17, 17, 17, 0.85);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      padding: 7px 18px;
+      border-radius: 30px;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .product-info {
+      padding: 16px 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: #fff;
+      flex-grow: 1;
+    }
+
+    .product-info h3 {
+      font-size: 16px;
+      margin-bottom: 6px;
+      color: #111;
+      font-weight: 600;
+      line-height: 1.35;
+    }
+
+    .product-info .price {
+      font-size: 18px;
+      font-weight: 700;
+      color: #111;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .product-info .price span {
+      font-size: 12px;
+      font-weight: 500;
+      color: #777;
+      text-transform: uppercase;
+    }
+
+    @media (hover: hover) and (min-width: 769px) {
+      .products-grid:hover .product-card {
+        filter: blur(3.5px) grayscale(20%) brightness(0.9);
+        opacity: 0.55;
+        transform: scale(0.98);
+      }
+
+      .products-grid .product-card:hover {
+        filter: blur(0px) grayscale(0%) brightness(1);
+        opacity: 1;
+        transform: translateY(-8px) scale(1.025);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.16);
+        z-index: 10;
+        border-color: #d1d1d1;
+      }
+
+      .products-grid .product-card:hover .card-img-wrap img {
+        transform: scale(1.06);
+      }
+
+      .products-grid .product-card:hover .view-pill {
+        transform: translateX(-50%) translateY(0);
+        opacity: 1;
+      }
+    }
+
+    /* DETAIL VIEW */
+    #product-detail-view {
+      display: none;
+      background: #ffffff;
+      padding: 35px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+      border: 1px solid #eaeaea;
+      animation: fadeInDetail 0.4s ease forwards;
+    }
+
+    @keyframes fadeInDetail {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #f1f3f5;
+      color: #222;
+      border: none;
+      padding: 10px 20px;
+      font-size: 14.5px;
+      font-weight: 600;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      margin-bottom: 25px;
+    }
+
+    .back-btn:hover {
+      background: #111;
+      color: #fff;
+      transform: translateX(-3px);
+    }
+
+    .detail-content {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+
+    .detail-img-box {
+      flex: 1;
+      min-width: 320px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .detail-img-box .main-img-wrap {
+      width: 100%;
+      height: 480px;
+      border-radius: 14px;
+      overflow: hidden;
+      background: #f0f0f0;
+      border: 1px solid #eee;
+    }
+
+    .detail-img-box .main-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      transition: opacity 0.25s ease, transform 0.4s ease;
+    }
+
+    .detail-thumbnails {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    .thumb-btn {
+      height: 80px;
+      border-radius: 10px;
+      overflow: hidden;
+      cursor: pointer;
+      border: 2px solid transparent;
+      opacity: 0.6;
+      transition: all 0.25s ease;
+      background: #f0f0f0;
+    }
+
+    .thumb-btn img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .thumb-btn:hover, .thumb-btn.active {
+      opacity: 1;
+      border-color: #111;
+      transform: translateY(-2px);
+    }
+
+    .detail-info-box {
+      flex: 1.2;
+      min-width: 280px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .detail-info-box h2 {
+      font-size: 30px;
+      margin-bottom: 8px;
+      color: #111;
+      font-weight: 700;
+    }
+
+    .detail-info-box .detail-price {
+      font-size: 26px;
+      font-weight: 700;
+      color: #111;
+      margin-bottom: 16px;
+    }
+
+    .detail-info-box .description {
+      font-size: 15px;
+      line-height: 1.7;
+      color: #555;
+      margin-bottom: 24px;
+    }
+
+    .sizes {
+      margin-bottom: 24px;
+    }
+
+    .sizes span {
+      font-weight: 600;
+      display: block;
+      margin-bottom: 10px;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .size-btn {
+      padding: 9px 18px;
+      margin-right: 8px;
+      border: 1.5px solid #dcdcdc;
+      background: transparent;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 13.5px;
+      transition: all 0.2s ease;
+    }
+
+    .size-btn:hover, .size-btn.active {
+      background: #111;
+      color: #fff;
+      border-color: #111;
+      transform: translateY(-2px);
+    }
+
+    .buy-btn {
+      background: #111;
+      color: #fff;
+      border: none;
+      padding: 15px 35px;
+      font-size: 15.5px;
+      font-weight: 600;
+      border-radius: 30px;
+      cursor: pointer;
+      width: fit-content;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .buy-btn:hover {
+      background: #333;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+    }
+
+    /* ==========================================
+       6. FLOATING GOLDEN GLASS CART ICON & DRAWER
+    ========================================== */
+    .floating-cart-btn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 62px;
+      height: 62px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.45);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border: 1.5px solid rgba(212, 175, 55, 0.7);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15), 
+                  0 0 15px rgba(212, 175, 55, 0.35),
+                  inset 0 0 12px rgba(255, 255, 255, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 999;
+      transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .floating-cart-btn i {
+      font-size: 23px;
+      color: #916b1f;
+      transition: transform 0.3s ease;
+    }
+
+    .floating-cart-btn:hover {
+      transform: scale(1.1) translateY(-4px);
+      box-shadow: 0 15px 35px rgba(212, 175, 55, 0.45);
+      border-color: #d4af37;
+    }
+
+    .floating-cart-btn:hover i {
+      transform: scale(1.15) rotate(-5deg);
+      color: #d4af37;
+    }
+
+    .cart-badge {
+      position: absolute;
+      top: 5px;
+      right: 6px;
+      width: 19px;
+      height: 19px;
+      background: #e63946;
+      color: #ffffff;
+      border: 2px solid #ffffff;
+      border-radius: 50%;
+      font-size: 10px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: scale(0);
+      transition: transform 0.3s ease;
+      box-shadow: 0 2px 6px rgba(230, 57, 70, 0.6);
+    }
+
+    .cart-badge.active {
+      transform: scale(1);
+    }
+
+    /* CART DRAWER */
+    .cart-drawer-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 1000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.35s ease;
+    }
+
+    .cart-drawer-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: -450px;
+      width: 100%;
+      max-width: 420px;
+      height: 100vh;
+      background: #ffffff;
+      z-index: 1001;
+      box-shadow: -10px 0 40px rgba(0, 0, 0, 0.2);
+      display: flex;
+      flex-direction: column;
+      transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .cart-drawer.open {
+      right: 0;
+    }
+
+    .cart-drawer-header {
+      padding: 22px 25px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #f0f0f0;
+      background: #faf8f5;
+    }
+
+    .cart-drawer-header h3 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      color: #1c1917;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-transform: uppercase;
+    }
+
+    .cart-close-btn {
+      background: transparent;
+      border: none;
+      font-size: 1.3rem;
+      color: #666;
+      cursor: pointer;
+      padding: 4px;
+      transition: all 0.2s ease;
+    }
+
+    .cart-close-btn:hover {
+      color: #111;
+      transform: rotate(90deg);
+    }
+
+    .cart-items-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px 25px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .empty-cart-msg {
+      text-align: center;
+      margin: auto;
+      color: #888;
+      font-size: 14px;
+    }
+
+    .cart-item-card {
+      display: flex;
+      gap: 15px;
+      padding: 12px;
+      border-radius: 14px;
+      background: #fdfdfd;
+      border: 1px solid #eee;
+      position: relative;
+    }
+
+    .cart-item-img {
+      width: 70px;
+      height: 85px;
+      border-radius: 8px;
+      object-fit: cover;
+      background: #eee;
+    }
+
+    .cart-item-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .cart-item-info h4 {
+      font-size: 14px;
+      font-weight: 600;
+      color: #111;
+      margin-bottom: 3px;
+    }
+
+    .cart-item-meta {
+      font-size: 12px;
+      color: #777;
+      margin-bottom: 6px;
+    }
+
+    .cart-item-price {
+      font-size: 14px;
+      font-weight: 700;
+      color: #916b1f;
+    }
+
+    .cart-item-remove {
+      position: absolute;
+      top: 10px;
+      right: 12px;
+      background: transparent;
+      border: none;
+      color: #e63946;
+      cursor: pointer;
+      font-size: 13px;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+
+    .cart-item-remove:hover {
+      opacity: 1;
+    }
+
+    .cart-drawer-footer {
+      padding: 20px 25px 25px;
+      border-top: 1px solid #f0f0f0;
+      background: #faf8f5;
+    }
+
+    .cart-subtotal-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: #111;
+    }
+
+    .cart-subtotal-row span:last-child {
+      color: #916b1f;
+      font-size: 18px;
+    }
+
+    .btn-place-order-bar {
+      width: 100%;
+      background: linear-gradient(135deg, #a67c1e 0%, #d4af37 50%, #7d5b12 100%);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border-radius: 50px;
+      padding: 16px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 10px 25px rgba(212, 175, 55, 0.35);
+      transition: all 0.3s ease;
+    }
+
+    .btn-place-order-bar:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px rgba(212, 175, 55, 0.5);
+      filter: brightness(1.06);
+    }
+
+    /* ==========================================
+       7. OFFICIAL ORDER RECEIPT MODAL
+    ========================================== */
+    .receipt-modal-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.82);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px 15px;
+      overflow-y: auto;
+    }
+
+    .receipt-modal-backdrop.open {
+      display: flex;
+    }
+
+    .order-container {
+      width: 100%;
+      max-width: 520px;
+      background: rgba(25, 22, 38, 0.94);
+      backdrop-filter: blur(25px);
+      -webkit-backdrop-filter: blur(25px);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-top: 3px solid #d4af37;
+      border-radius: 24px;
+      padding: 35px 28px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85), 0 0 25px rgba(212, 175, 55, 0.15);
+      position: relative;
+      margin: auto;
+    }
+
+    .receipt-close-x {
+      position: absolute;
+      top: 18px;
+      right: 20px;
+      background: transparent;
+      border: none;
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 20px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .receipt-close-x:hover {
+      color: #d4af37;
+      transform: scale(1.1);
+    }
+
+    .receipt-header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .brand-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 26px;
+      font-weight: 800;
+      color: #d4af37;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .receipt-subtitle {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.6);
+      letter-spacing: 0.5px;
+    }
+
+    .invoice-badge {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(212, 175, 55, 0.1);
+      border: 1px dashed rgba(212, 175, 55, 0.4);
+      padding: 10px 16px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      font-size: 13px;
+      color: #ffffff;
+    }
+
+    .invoice-badge span {
+      color: #d4af37;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .locked-details-card {
+      background: rgba(0, 0, 0, 0.45);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 18px;
+      margin-bottom: 22px;
+      position: relative;
+    }
+
+    .card-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #d4af37;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    .detail-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 7px 0;
+      font-size: 13.5px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .detail-row:last-child {
+      border-bottom: none;
+      padding-top: 10px;
+      margin-top: 4px;
+      border-top: 1px dashed rgba(255, 255, 255, 0.15);
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .detail-title {
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .detail-value {
+      color: #ffffff;
+      font-weight: 500;
+      text-align: right;
+    }
+
+    .detail-value.highlight {
+      color: #d4af37;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+      text-align: left;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.85);
+      margin-bottom: 7px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .input-field {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 12px;
+      padding: 13px 15px;
+      color: #ffffff;
+      font-size: 14px;
+      outline: none;
+      transition: all 0.3s ease;
+    }
+
+    .input-field:focus {
+      border-color: #d4af37;
+      background: rgba(255, 255, 255, 0.1);
+      box-shadow: 0 0 14px rgba(212, 175, 55, 0.3);
+    }
+
+    .input-field::placeholder {
+      color: rgba(255, 255, 255, 0.35);
+    }
+
+    select.input-field option {
+      background: #14121f;
+      color: #ffffff;
+    }
+
+    .btn-whatsapp {
+      width: 100%;
+      background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+      color: #ffffff;
+      border: none;
+      border-radius: 50px;
+      padding: 15px;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      box-shadow: 0 10px 25px rgba(37, 211, 102, 0.35);
+      transition: all 0.3s ease;
+      margin-top: 10px;
+    }
+
+    .btn-whatsapp:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 30px rgba(37, 211, 102, 0.5);
+    }
+
+    .btn-download-img {
+      width: 100%;
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: rgba(255, 255, 255, 0.8);
+      border-radius: 50px;
+      padding: 11px;
+      font-size: 13px;
+      margin-top: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-download-img:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+      border-color: #d4af37;
+    }
+
+    .toast-msg {
+      position: fixed;
+      bottom: 100px;
+      right: 30px;
+      background: rgba(17, 17, 17, 0.92);
+      backdrop-filter: blur(10px);
+      color: #ffffff;
+      padding: 12px 24px;
+      border-radius: 30px;
+      font-size: 13.5px;
+      font-weight: 500;
+      border-left: 4px solid #d4af37;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      z-index: 1050;
+      transform: translateY(30px);
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.3s ease;
+    }
+
+    .toast-msg.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* ==========================================
+       8. ABOUT MB ATTIRE (CLEAN PIN & NO DUPLICATE JUMP)
+    ========================================== */
+    .about-section-wrapper {
+      position: relative;
+      background-color: #ffffff;
+      color: #111111;
+      width: 100%;
+      border-top: 1px solid rgba(0, 0, 0, 0.06);
+      overflow: hidden;
+    }
+
+    /* Removed CSS sticky so GSAP ScrollTrigger pins cleanly without duplicates */
+    .pin-viewport {
+      width: 100vw;
+      min-height: 100vh;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 4rem 1.5rem 3rem 1.5rem;
+      background-color: #ffffff;
+      box-sizing: border-box;
+      position: relative;
+    }
+
+    .content-container {
+      max-width: 980px;
+      width: 100%;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1.4rem;
+      margin: auto;
+    }
+
+    /* Glossy Gold Heading (Modern Romance) */
+    .glossy-gold-heading {
+      font-family: 'Modern Romance', 'Playfair Display', serif !important;
+      font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+      letter-spacing: clamp(2px, 0.5vw, 4px);
+      text-transform: uppercase;
+      text-align: center;
+      line-height: 1.2;
+      margin-bottom: 0.3rem;
+    }
+
+    /* Paragraphs (Dream Orphans) - Black Color */
+    .paragraph {
+      font-family: 'Dream Orphans', sans-serif !important;
+      font-size: clamp(0.96rem, 1.35vw, 1.18rem);
+      line-height: 1.65;
+      color: #111111;
+      text-align: center;
+      letter-spacing: 0.3px;
+      font-weight: 400;
+    }
+
+    /* Word Reveal Blur Effect */
+    .reveal-word {
+      display: inline-block;
+      opacity: 0.12;
+      filter: blur(8px);
+      transform: scale(0.97);
+      margin-right: 0.24em;
+      will-change: transform, opacity, filter;
+      font-family: inherit !important;
+    }
+
+    /* Glossy Gold Metallic Gradient for Heading Words */
+    .gold-word {
+      background: linear-gradient(
+        135deg,
+        #996515 0%,
+        #d4af37 25%,
+        #b38728 50%,
+        #daa520 75%,
+        #8b6508 100%
+      );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: blur(8px) drop-shadow(0 2px 8px rgba(180, 130, 20, 0.25));
+      font-family: inherit !important;
+    }
+
+    /* ==========================================
+       9. LUXURY FOOTER (CONNECTED DIRECTLY)
+    ========================================== */
+    .luxury-footer {
+      position: relative;
+      background: linear-gradient(180deg, #faf8f5 0%, #f3ece0 100%);
+      padding: 90px 8% 40px;
+      border-top: 1px solid rgba(212, 175, 55, 0.25);
+      overflow: hidden;
+      font-family: var(--font-footer-body);
+      color: var(--text-dark);
+      z-index: 10;
+    }
+
+    .gold-glow {
+      position: absolute;
+      top: -100px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 350px;
+      background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .vertical-cut-container {
+      text-align: center;
+      margin-bottom: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .cut-headline {
+      font-family: var(--font-footer-heading);
+      font-size: clamp(2.8rem, 8.5vw, 7.5rem);
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      line-height: 1.15;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: nowrap;
+      background: var(--gold-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 4px 15px rgba(212, 175, 55, 0.2));
+      user-select: none;
+    }
+
+    .cut-char-mask {
+      display: inline-block;
+      overflow: hidden;
+      vertical-align: bottom;
+      line-height: 1.15;
+      padding: 0 1px;
+    }
+
+    .cut-char-inner {
+      display: inline-block;
+      will-change: transform, opacity;
+    }
+
+    .cut-char-space {
+      display: inline-block;
+      width: clamp(12px, 2.5vw, 36px);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.8fr 1fr 1fr 1.2fr;
+      gap: 50px;
+      padding: 50px 0 60px;
+      border-top: 1px solid rgba(212, 175, 55, 0.2);
+      position: relative;
+      z-index: 2;
+    }
+
+    .brand-col h3 {
+      font-family: var(--font-footer-heading);
+      font-size: 1.4rem;
+      font-weight: 800;
+      letter-spacing: 3px;
+      color: var(--text-dark);
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+
+    .brand-col p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.8;
+      max-width: 320px;
+      margin-bottom: 22px;
+    }
+
+    .insta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 11px 22px;
+      background: var(--glass-card);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border-radius: 50px;
+      color: var(--gold-dark);
+      text-decoration: none;
+      font-family: var(--font-footer-heading);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      box-shadow: 0 6px 20px rgba(212, 175, 55, 0.12);
+      transition: all 0.35s ease;
+    }
+
+    .insta-btn i {
+      font-size: 1.1rem;
+      color: var(--gold-primary);
+      transition: transform 0.3s ease;
+    }
+
+    .insta-btn:hover {
+      background: var(--gold-gradient);
+      color: #ffffff;
+      border-color: transparent;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+    }
+
+    .insta-btn:hover i {
+      color: #ffffff;
+      transform: scale(1.15) rotate(10deg);
+    }
+
+    .footer-col h4 {
+      font-family: var(--font-footer-heading);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      margin-bottom: 20px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .footer-col h4::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 22px;
+      height: 2px;
+      background: var(--gold-primary);
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col ul li {
+      margin-bottom: 12px;
+    }
+
+    .footer-col ul li a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.88rem;
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+
+    .footer-col ul li a:hover {
+      color: var(--gold-dark);
+      transform: translateX(5px);
+    }
+
+    .bespoke-box {
+      background: var(--glass-card);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      padding: 22px;
+      border-radius: 16px;
+      box-shadow: 0 8px 25px rgba(212, 175, 55, 0.08);
+    }
+
+    .bespoke-box p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+
+    .inquire-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      padding: 10px 16px;
+      background: var(--gold-gradient);
+      color: #ffffff;
+      border: none;
+      border-radius: 10px;
+      font-family: var(--font-footer-heading);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-decoration: none;
+      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.25);
+      transition: 0.3s;
+    }
+
+    .inquire-btn:hover {
+      filter: brightness(1.08);
+      transform: translateY(-2px);
+    }
+
+    .footer-bottom {
+      padding-top: 25px;
+      border-top: 1px solid rgba(212, 175, 55, 0.15);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      font-size: 0.8rem;
+      color: #8c887e;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .footer-bottom span {
+      color: var(--gold-dark);
+      font-weight: 700;
+    }
+
+    .xb-credit-link {
+      color: var(--gold-dark);
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: inline-block;
+      letter-spacing: 1.5px;
+    }
+
+    .xb-credit-link:hover {
+      color: var(--gold-primary);
+      transform: translateY(-1px);
+      text-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+    }
+
+    /* ==========================================
+       10. RESPONSIVE DESIGN (OPTIMIZED FOR MOBILE)
+    ========================================== */
+    @media (max-width: 992px) {
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        padding: 20px 12px 10px 12px;
+      }
+
+      .desktop-only { display: none !important; }
+      .mobile-only { display: inline-flex !important; }
+
+      .nav-group:first-child {
+        width: 100%;
+        justify-content: center;
+        gap: 0;
+      }
+
+      .brand-logo-link { margin-right: 0; }
+      .brand-logo-img { height: 52px; }
+
+      .nav-group:last-child {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .glass-pill {
+        padding: 7px 14px;
+        font-size: 12px;
+      }
+
+      .bottom-section {
+        padding: 50px 18px 24px 18px;
+      }
+
+      .box-left { max-width: 100%; }
+
+      .heading-dream {
+        font-size: 24px;
+        margin-bottom: 8px;
+      }
+
+      .content-box p {
+        font-size: 12px;
+        line-height: 1.5;
+      }
+
+      .section-header-bar {
+        padding: 14px 16px;
+      }
+
+      .section-header-bar h1 {
+        font-size: 24px;
+      }
+
+      .container {
+        margin: 16px auto;
+        padding: 0 10px;
+      }
+
+      .section-title {
+        font-size: 18px;
+        margin-bottom: 14px;
+      }
+
+      .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+
+      .product-card {
+        border-radius: 12px;
+      }
+
+      .card-img-wrap {
+        height: 220px;
+      }
+
+      .product-info {
+        padding: 10px 8px;
+      }
+
+      .product-info h3 {
+        font-size: 13px;
+        margin-bottom: 4px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      .product-info .price {
+        font-size: 14px;
+      }
+
+      #product-detail-view {
+        padding: 18px 14px;
+        border-radius: 14px;
+      }
+
+      .detail-content {
+        gap: 20px;
+      }
+
+      .detail-img-box {
+        min-width: 100%;
+      }
+
+      .detail-img-box .main-img-wrap {
+        height: 380px;
+        border-radius: 10px;
+      }
+
+      .detail-thumbnails {
+        gap: 6px;
+      }
+
+      .thumb-btn {
+        height: 65px;
+        border-radius: 6px;
+      }
+
+      .detail-info-box h2 {
+        font-size: 22px;
+      }
+
+      .detail-info-box .detail-price {
+        font-size: 20px;
+        margin-bottom: 10px;
+      }
+
+      .detail-info-box .description {
+        font-size: 13px;
+        line-height: 1.5;
+        margin-bottom: 18px;
+      }
+
+      .buy-btn {
+        width: 100%;
+        text-align: center;
+        padding: 14px;
+        font-size: 15px;
+        justify-content: center;
+      }
+
+      /* Floating Cart Mobile */
+      .floating-cart-btn {
+        bottom: 20px;
+        right: 20px;
+        width: 55px;
+        height: 55px;
+      }
+
+      .floating-cart-btn i {
+        font-size: 20px;
+      }
+
+      .cart-drawer {
+        max-width: 100%;
+      }
+
+      /* Order Container Mobile */
+      .order-container {
+        padding: 26px 18px;
+        border-radius: 20px;
+      }
+
+      /* About Mobile - Clean Padding and Scaling */
+      .pin-viewport {
+        padding: 3rem 1.2rem 2rem 1.2rem;
+        height: auto;
+        min-height: 100vh;
+      }
+      .content-container {
+        gap: 1rem;
+      }
+      .paragraph {
+        line-height: 1.5;
+        font-size: clamp(0.85rem, 3.4vw, 0.98rem);
+      }
+      .glossy-gold-heading {
+        font-size: clamp(1.7rem, 7vw, 2.3rem);
+      }
+      .reveal-word {
+        filter: blur(6px);
+      }
+
+      /* Luxury Footer Mobile */
+      .luxury-footer {
+        padding: 50px 5% 25px;
+      }
+      .vertical-cut-container {
+        margin-bottom: 30px;
+      }
+      .cut-headline {
+        font-size: clamp(2rem, 9.2vw, 3.5rem);
+        letter-spacing: 0.05em;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 35px 0 40px;
+      }
+      .brand-col p {
+        max-width: 100%;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+        padding-top: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==========================================
+       1. HERO SECTION
+  ========================================== -->
+  <main class="hero" id="hero">
+    <!-- BACKGROUND VIDEO -->
+    <video class="bg-video" id="bgVideo" autoplay loop muted playsinline>
+      <source src="Initial_Scene_-_2026-08-13_202608131457.mp4" type="video/mp4">
+    </video>
+
+    <!-- FADE OVERLAY ON SCROLL -->
+    <div class="scroll-overlay" id="scrollOverlay"></div>
+
+    <!-- TOP NAVIGATION -->
+    <nav class="navbar">
+      <div class="nav-group">
+        <a href="#" class="brand-logo-link">
+          <img src="file:///C:/Users/COMUTER%20HOUSE/Downloads/EFE70559-7FFD-462A-B462-FC39E86EA725-removebg-preview.png" 
+               alt="MB Attire Logo" 
+               class="brand-logo-img"
+               onerror="this.onerror=null; this.src='EFE70559-7FFD-462A-B462-FC39E86EA725-removebg-preview.png';">
+        </a>
+        <a href="#about" class="glass-pill desktop-only">about</a>
+      </div>
+
+      <div class="nav-group">
+        <a href="#what-we-sell" class="glass-pill">what we sell</a>
+        <a href="#about" class="glass-pill">about</a>
+        <a href="#luxuryFooter" class="glass-pill">contact</a>
+      </div>
+    </nav>
+
+    <!-- BOTTOM CONTENT -->
+    <div class="bottom-section" id="bottomSection">
+      <div class="content-box box-left">
+        <h2 class="heading-dream">Wear Your Confidence</h2>
+        <p>
+          Confidence isn't just a mindset; it’s something you carry with you. At MB Attire, our outfits are designed to elevate your style and boost your self-assurance. When you dress exceptionally, you feel empowered to own every moment.
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <!-- ==========================================
+       2. WHAT WE'RE SELLING SECTION
+  ========================================== -->
+  <section id="what-we-sell">
+    <div class="section-header-bar" data-aos="fade-up">
+      <h1>What We're Selling</h1>
+    </div>
+
+    <div class="container">
+
+      <!-- MAIN PRODUCTS LISTING PAGE -->
+      <div id="products-listing-view">
+        <h2 class="section-title" data-aos="fade-up">New Arrivals</h2>
+        <div class="products-grid" id="products-container">
+          <!-- Dynamic products injected here -->
+        </div>
+      </div>
+
+      <!-- PRODUCT DETAIL PAGE -->
+      <div id="product-detail-view">
+        <button class="back-btn" onclick="goBackToProducts()">
+          <i class="fa-solid fa-arrow-left"></i> Back to Products
+        </button>
+
+        <div class="detail-content">
+          <div class="detail-img-box">
+            <div class="main-img-wrap">
+              <img id="detail-image" src="" alt="Product Image">
+            </div>
+            <div class="detail-thumbnails" id="thumbnails-container"></div>
+          </div>
+
+          <div class="detail-info-box">
+            <h2 id="detail-title">Product Title</h2>
+            <div class="detail-price" id="detail-price">Rs. 0</div>
+            <p class="description" id="detail-description">Description goes here.</p>
+            
+            <div class="sizes">
+              <span>Select Size:</span>
+              <button class="size-btn" onclick="selectSize(this)">S</button>
+              <button class="size-btn active" onclick="selectSize(this)">M</button>
+              <button class="size-btn" onclick="selectSize(this)">L</button>
+              <button class="size-btn" onclick="selectSize(this)">XL</button>
+            </div>
+
+            <button class="buy-btn" id="buy-btn-action" onclick="handleAddToCartFromDetail()">
+              <i class="fa-solid fa-bag-shopping"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================
+       3. FLOATING GOLDEN GLASS CART BUTTON
+  ========================================== -->
+  <div class="floating-cart-btn" id="floatingCartBtn" onclick="toggleCartDrawer()">
+    <i class="fa-solid fa-bag-shopping"></i>
+    <div class="cart-badge" id="cartBadge">0</div>
+  </div>
+
+  <!-- CART SLIDE-OVER DRAWER -->
+  <div class="cart-drawer-overlay" id="cartOverlay" onclick="toggleCartDrawer()"></div>
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-drawer-header">
+      <h3><i class="fa-solid fa-bag-shopping" style="color: #916b1f;"></i> My Cart</h3>
+      <button class="cart-close-btn" onclick="toggleCartDrawer()"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+
+    <div class="cart-items-body" id="cartItemsBody">
+      <div class="empty-cart-msg">Your shopping bag is empty.</div>
+    </div>
+
+    <div class="cart-drawer-footer">
+      <div class="cart-subtotal-row">
+        <span>Subtotal:</span>
+        <span id="cartSubtotal">Rs. 0</span>
+      </div>
+      <button class="btn-place-order-bar" id="btnPlaceOrder" onclick="openReceiptModal()">
+        <i class="fa-solid fa-receipt"></i> Place Order
+      </button>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       4. OFFICIAL ORDER RECEIPT MODAL
+  ========================================== -->
+  <div class="receipt-modal-backdrop" id="receiptModal">
+    <div class="order-container" id="receiptContainer">
+      <button class="receipt-close-x" onclick="closeReceiptModal()"><i class="fa-solid fa-xmark"></i></button>
+      
+      <div class="receipt-header">
+        <div class="brand-title">MB ATTIRE</div>
+        <div class="receipt-subtitle">Official Order Confirmation</div>
+      </div>
+
+      <div class="invoice-badge">
+        <div>Invoice: <span id="displayInvoiceId">#MB-000000</span></div>
+        <div id="displayOrderDate" style="color: rgba(255,255,255,0.7);"></div>
+      </div>
+
+      <!-- LOCKED AUTO-FILLED DETAILS -->
+      <div class="locked-details-card">
+        <div class="card-label">
+          <i class="fa-solid fa-lock"></i> Order Summary (Auto Locked)
+        </div>
+
+        <div class="detail-row">
+          <span class="detail-title">Products:</span>
+          <span class="detail-value" id="autoProductName">Product Name</span>
+        </div>
+
+        <div class="detail-row">
+          <span class="detail-title">Total Quantity:</span>
+          <span class="detail-value" id="autoQuantity">0</span>
+        </div>
+
+        <div class="detail-row">
+          <span class="detail-title">Selected Sizes:</span>
+          <span class="detail-value" id="autoSize">M</span>
+        </div>
+
+        <div class="detail-row">
+          <span class="detail-title">Total Amount:</span>
+          <span class="detail-value highlight" id="autoTotalAmount">Rs. 0</span>
+        </div>
+      </div>
+
+      <!-- CUSTOMER INPUT FORM -->
+      <form id="customerOrderForm">
+        <div class="form-group">
+          <label><i class="fa-regular fa-user"></i> Customer Name</label>
+          <input type="text" id="custName" class="input-field" placeholder="Apna Poora Naam Likhein" required>
+        </div>
+
+        <div class="form-group">
+          <label><i class="fa-solid fa-location-dot"></i> Delivery Address</label>
+          <input type="text" id="custAddress" class="input-field" placeholder="Makan No, Gali, Shehar (City)" required>
+        </div>
+
+        <div class="form-group">
+          <label><i class="fa-regular fa-credit-card"></i> Payment Method</label>
+          <select id="custPayment" class="input-field" required>
+            <option value="Cash on Delivery (COD)">Cash on Delivery (COD)</option>
+            <option value="Online Payment (JazzCash / EasyPaisa)">Online Payment (JazzCash / EasyPaisa)</option>
+            <option value="Direct Bank Transfer">Direct Bank Transfer</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn-whatsapp">
+          <i class="fa-brands fa-whatsapp" style="font-size: 20px;"></i> Confirm Order on WhatsApp
+        </button>
+
+        <button type="button" class="btn-download-img" onclick="downloadReceiptImage()">
+          <i class="fa-solid fa-camera"></i> Download Receipt Picture (PNG)
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <div class="toast-msg" id="toastMsg">Added to Bag!</div>
+
+  <!-- ==========================================
+       5. ABOUT MB ATTIRE (NO DUPLICATE JUMP - SMOOTH PINNED REVEAL)
+  ========================================== -->
+  <section class="about-section-wrapper" id="about">
+    <div class="pin-viewport" id="pinViewport">
+      <div class="content-container" id="contentContainer">
+        
+        <!-- Glossy Golden Heading in Modern Romance -->
+        <h1 class="glossy-gold-heading" id="headingElement">
+          ABOUT MB ATTIRE
+        </h1>
+
+        <!-- Paragraph 1 in Dream Orphans & Black Color -->
+        <p class="paragraph text-reveal">
+          Founded by the visionary designer Maria Bilal, MB Attire stands at the vibrant intersection of timeless tradition and modern haute couture. Established with a passion for transforming everyday wardrobe choices into statements of elegance, the brand is dedicated to re-defining luxury fashion for the contemporary individual. At MB Attire, we believe that modern attire should not only reflect current aesthetic trends but should also empower individuals, offering them a seamless blend of confidence, comfort, and sophistication. Driven by Maria Bilal’s distinct creative vision and eye for detail, the label has quickly grown into a trusted destination for those who seek high-end fashion crafted with precision, passion, and artistic integrity.
+        </p>
+
+        <!-- Paragraph 2 in Dream Orphans & Black Color -->
+        <p class="paragraph text-reveal">
+          Our comprehensive collection and dedicated services span a wide array of fashion categories, catering to diverse styling needs across every season and occasion. From effortlessly chic daily casuals and sophisticated Pret-a-Porter (ready-to-wear) lines to meticulously detailed festive wear and bespoke formal ensembles, MB Attire delivers unmatched versatility. Every garment is crafted using premium-grade fabrics, custom color palettes, and intricate embroidery techniques that showcase rich craftsmanship paired with clean, contemporary silhouettes. Beyond providing exquisite garments, we pride ourselves on delivering an exceptional end-to-end shopping experience—offering personalized customer support, tailored sizing guidance, and reliable, hassle-free doorstep delivery. MB Attire is more than just a clothing label; it is a celebration of individuality, grace, and enduring style.
+        </p>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       6. LUXURY FOOTER (CONNECTED DIRECTLY)
+  ========================================== -->
+  <footer class="luxury-footer" id="luxuryFooter">
+    <div class="gold-glow"></div>
+
+    <div class="vertical-cut-container">
+      <div class="cut-headline" id="verticalCutText">MB ATTIRE</div>
+    </div>
+
+    <div class="footer-grid">
+      <div class="brand-col anim-elem">
+        <h3>MB ATTIRE</h3>
+        <p>Epitome of elegance. Curating regal silhouettes, bespoke menswear, and timeless festive ensembles.</p>
+        
+        <a href="https://www.instagram.com/mbattire_1/" target="_blank" class="insta-btn">
+          <i class="fa-brands fa-instagram"></i>
+          <span>@mbattire_1</span>
+          <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.75rem; margin-left: 2px;"></i>
+        </a>
+      </div>
+
+      <div class="footer-col anim-elem">
+        <h4>Collections</h4>
+        <ul>
+          <li><a href="#what-we-sell">Festive Kurta Sets</a></li>
+          <li><a href="#what-we-sell">Prince Coats & Waistcoats</a></li>
+          <li><a href="#what-we-sell">Signature Silk Edit</a></li>
+          <li><a href="#what-we-sell">Luxury Formal Pret</a></li>
+          <li><a href="#what-we-sell">New Season Arrivals</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col anim-elem">
+        <h4>Maison</h4>
+        <ul>
+          <li><a href="#about">Our Craftsmanship</a></li>
+          <li><a href="#about">Custom Measurements</a></li>
+          <li><a href="#what-we-sell">Lookbook Catalog</a></li>
+          <li><a href="#about">Worldwide Delivery</a></li>
+          <li><a href="#about">Client Experience</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col anim-elem">
+        <h4>Bespoke Concierge</h4>
+        <div class="bespoke-box">
+          <p>Connect directly for customized tailoring, bridal entourage, and global delivery assistance.</p>
+          <a href="https://www.instagram.com/mbattire_1/" target="_blank" class="inquire-btn">
+            <i class="fa-solid fa-paper-plane"></i> Direct Inquiry
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom anim-elem">
+      <p>&copy; 2026 <span>MB ATTIRE</span>. All Rights Reserved.</p>
+      <p>Developed by <a href="https://www.instagram.com/xbofficial.pk/" target="_blank" class="xb-credit-link">XB</a></p>
+    </div>
+  </footer>
+
+  <!-- ==========================================
+       SCRIPTS (AOS & GSAP SCROLLTRIGGER)
+  ========================================== -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <script>
+    const OWNER_WHATSAPP_NUMBER = "923223645508";
+
+    // 1. HERO VIDEO BLUR ON SCROLL
+    const bgVideo = document.getElementById('bgVideo');
+    const scrollOverlay = document.getElementById('scrollOverlay');
+    const bottomSection = document.getElementById('bottomSection');
+
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
+
+      let progress = Math.min(scrollY / (windowHeight * 0.75), 1);
+      const blurValue = progress * 25;
+      
+      if (bgVideo) bgVideo.style.filter = `blur(${blurValue}px)`;
+      if (scrollOverlay) scrollOverlay.style.opacity = progress * 0.85;
+      if (bottomSection) {
+        bottomSection.style.opacity = 1 - progress * 1.2;
+        bottomSection.style.transform = `translateY(-${progress * 40}px)`;
+      }
+    });
+
+    // 2. PRODUCTS DATA & LOGIC
+    const products = [
+      {
+        id: 1,
+        name: "MB 3piece Suit",
+        price: 3500,
+        images: [
+          "file:///C:/Users/COMUTER%20HOUSE/Desktop/PROJECT%20MB%20Attire/product%20page/1..png",
+          "file:///C:/Users/COMUTER%20HOUSE/Desktop/PROJECT%20MB%20Attire/product%20page/2..png",
+          "file:///C:/Users/COMUTER%20HOUSE/Desktop/PROJECT%20MB%20Attire/product%20page/3..png",
+          "file:///C:/Users/COMUTER%20HOUSE/Desktop/PROJECT%20MB%20Attire/product%20page/4..png"
+        ],
+        description: "Premium pure black 3-piece stitched suit crafted with intricate neck lacework, fine scallop border details, perfectly tailored trousers, and a lightweight graceful dupatta."
+      },
+      {
+        id: 2,
+        name: "2pc farshi shalwar suit",
+        price: 2950,
+        images: [
+          "file:///C:/Users/COMUTER%20HOUSE/Desktop/PROJECT%20MB%20Attire/product%20page/5..png.png",
+          "file:///C:/Users/COMUTER%20HOUSE/Desktop/PROJECT%20MB%20Attire/product%20page/6..png.png",
+          "file:///C:/Users/COMUTER%20HOUSE/Desktop/PROJECT%20MB%20Attire/product%20page/7..png.png",
+          "file:///C:/Users/COMUTER%20HOUSE/Desktop/PROJECT%20MB%20Attire/product%20page/8..png.png"
+        ],
+        description: "Elegant mustard yellow printed kurta paired with a traditional white farshi shalwar, finished with delicate white lace detailing on sleeves."
+      },
+      {
+        id: 3,
+        name: "MB 2 pc  Suit",
+        price: 2750,
+        images: [
+          "file:///C:/Users/COMUTER%20HOUSE/Desktop/PROJECT%20MB%20Attire/product%20page/9..png.png",
+          "file:///C:/Users/COMUTER%20HOUSE/Desktop/PROJECT%20MB%20Attire/product%20page/10..png.png",
+          "file:///C:/Users/COMUTER%20HOUSE/Desktop/PROJECT%20MB%20Attire/product%20page/11..png.png",
+          "file:///C:/Users/COMUTER%20HOUSE/Desktop/PROJECT%20MB%20Attire/product%20page/12..png.png"
+        ],
+        description: "Sophisticated black 2-piece stitched suit featuring intricate neckline embroidery, back V-lace detail, fine border finishing, and tailored straight-cut trousers."
+      },
+      {
+        id: 4,
+        name: "MB Summer Collection",
+        price: 5300,
+        images: [
+          "file:///C:/Users/COMUTER%20HOUSE/Desktop/PROJECT%20MB%20Attire/product%20page/13..png.png",
+          "file:///C:/Users/COMUTER%20HOUSE/Desktop/PROJECT%20MB%20Attire/product%20page/14..png.png",
+          "file:///C:/Users/COMUTER%20HOUSE/Desktop/PROJECT%20MB%20Attire/product%20page/15..png.png",
+          "file:///C:/Users/COMUTER%20HOUSE/Desktop/PROJECT%20MB%20Attire/product%20page/16..png.png"
+        ],
+        description: "Exquisite deep purple 3-piece festive summer suit adorned with heavy silver neckline embroidery, organza cutwork lace sleeves, matching trousers, and an elegant fluid chiffon dupatta."
+      },
+      {
+        id: 5,
+        name: "MB Embroided 3pc article",
+        price: 4500,
+        images: [
+          "file:///C:/Users/COMUTER%20HOUSE/Desktop/PROJECT%20MB%20Attire/product%20page/17..png.png",
+          "file:///C:/Users/COMUTER%20HOUSE/Desktop/PROJECT%20MB%20Attire/product%20page/18..png.png",
+          "file:///C:/Users/COMUTER%20HOUSE/Desktop/PROJECT%20MB%20Attire/product%20page/19..png.png",
+          "file:///C:/Users/COMUTER%20HOUSE/Desktop/PROJECT%20MB%20Attire/product%20page/20..png.png"
+        ],
+        description: "Graceful off-white 3-piece stitched suit enhanced with delicate lilac thread embroidery, scalloped borders, tailored white trousers with lace hems, and a matching soft lilac dupatta."
+      },
+      {
+        id: 6,
+        name: "3 Piece Luxury Collection",
+        price: 6000,
+        images: [
+          "file:///C:/Users/COMUTER%20HOUSE/Desktop/PROJECT%20MB%20Attire/product%20page/21..png.png",
+          "file:///C:/Users/COMUTER%20HOUSE/Desktop/PROJECT%20MB%20Attire/product%20page/22..png.png",
+          "file:///C:/Users/COMUTER%20HOUSE/Desktop/PROJECT%20MB%2023..png.png",
+          "file:///C:/Users/COMUTER%20HOUSE/Desktop/PROJECT%20MB%20Attire/product%20page/24..png.png"
+        ],
+        description: "Exquisite black 3-piece luxury stitched ensemble detailed with pearl embellishments on the neckline, laser-cut embroidered sleeves, scalloped borders, and an ornate cutwork lace net dupatta."
+      },
+      {
+        id: 7,
+        name: "Durya Lawn",
+        price: 3500,
+        images: [
+          "file:///C:/Users/COMUTER%20HOUSE/Desktop/PROJECT%20MB%20Attire/product%20page/25..png.png",
+          "file:///C:/Users/COMUTER%20HOUSE/Desktop/PROJECT%20MB%20Attire/product%20page/26..png.png",
+          "file:///C:/Users/COMUTER%20HOUSE/Desktop/PROJECT%20MB%20Attire/product%20page/27..png.png",
+          "file:///C:/Users/COMUTER%20HOUSE/Desktop/PROJECT%20MB%20Attire/product%20page/28..png.png"
+        ],
+        description: "Fresh multi-color botanical printed pure lawn 3-piece suit featuring lace trim borders, stitched wide-leg pleated white palazzos, and a breezy lightweight white chiffon dupatta."
+      },
+      {
+        id: 8,
+        name: "MB 2 pc Suit",
+        price: 3550,
+        images: [
+          "file:///C:/Users/COMUTER%20HOUSE/Desktop/PROJECT%20MB%20Attire/product%20page/29..png.png",
+          "file:///C:/Users/COMUTER%20HOUSE/Desktop/PROJECT%20MB%20Attire/product%20page/30..png.png",
+          "file:///C:/Users/COMUTER%20HOUSE/Desktop/PROJECT%20MB%20Attire/product%20page/31..png.png",
+          "file:///C:/Users/COMUTER%20HOUSE/Desktop/PROJECT%20MB%20Attire/product%20page/32..png.png"
+        ],
+        description: "Chic black and violet floral printed 2-piece co-ord set crafted from soft breathable lawn, featuring scallop neckline detailing and matching printed straight trousers."
+      },
+      {
+        id: 9,
+        name: "Duriya Lawn",
+        price: 3200,
+        images: [
+          "file:///C:/Users/COMUTER%20HOUSE/Desktop/PROJECT%20MB%20Attire/product%20page/33..png.png",
+          "file:///C:/Users/COMUTER%20HOUSE/Desktop/PROJECT%20MB%20Attire/product%20page/34..png.png",
+          "file:///C:/Users/COMUTER%20HOUSE/Desktop/PROJECT%20MB%20Attire/product%20page/35..png.png",
+          "file:///C:/Users/COMUTER%20HOUSE/Desktop/PROJECT%20MB%20Attire/product%20page/36..png.png"
+        ],
+        description: "Vibrant turquoise printed duriya lawn 2-piece set detailed with delicate white lace borders along the neckline, sleeves, and trousers, paired with an airy white dupatta."
+      },
+      {
+        id: 10,
+        name: "Farshi shalwar Kameez",
+        price: 2950,
+        images: [
+          "file:///C:/Users/COMUTER%20HOUSE/Desktop/PROJECT%20MB%20Attire/product%20page/37..png.png",
+          "file:///C:/Users/COMUTER%20HOUSE/Desktop/PROJECT%20MB%20Attire/product%20page/38..png.png",
+          "file:///C:/Users/COMUTER%20HOUSE/Desktop/PROJECT%20MB%20Attire/product%20page/39..png.png",
+          "file:///C:/Users/COMUTER%20HOUSE/Desktop/PROJECT%20MB%20Attire/product%20page/40..png.png"
+        ],
+        description: "Chic lilac geometric printed short kurti with round hem and lace sleeves, paired with a traditional wide-flared white farshi shalwar."
+      },
+      {
+        id: 11,
+        name: "MB Farshi Shalwar kameez",
+        price: 2950,
+        images: [
+          "file:///C:/Users/COMUTER%20HOUSE/Desktop/PROJECT%20MB%20Attire/product%20page/41..png.png",
+          "file:///C:/Users/COMUTER%20HOUSE/Desktop/PROJECT%20MB%20Attire/product%20page/42..png.png",
+          "file:///C:/Users/COMUTER%20HOUSE/Desktop/PROJECT%20MB%20Attire/product%20page/43..png.png",
+          "file:///C:/Users/COMUTER%20HOUSE/Desktop/PROJECT%20MB%20Attire/product%20page/44..png.png"
+        ],
+        description: "Solid plum-colored cotton tunic with a modern curved hem and keyhole neckline, paired with a pristine white flared farshi shalwar."
+      },
+      {
+        id: 12,
+        name: "MB 2 Pc Suit With Dupatta",
+        price: 2950,
+        images: [
+          "file:///C:/Users/COMUTER%20HOUSE/Desktop/PROJECT%20MB%20Attire/product%20page/45..png.png",
+          "file:///C:/Users/COMUTER%20HOUSE/Desktop/PROJECT%20MB%20Attire/product%20page/46..png.png",
+          "file:///C:/Users/COMUTER%20HOUSE/Desktop/PROJECT%20MB%20Attire/product%20page/47..png.png",
+          "file:///C:/Users/COMUTER%20HOUSE/Desktop/PROJECT%20MB%20Attire/product%20page/48..png.png"
+        ],
+        description: "Royal black printed tunic with gold ethnic motifs, tailored straight trousers, and an ethereal black sheer dupatta edged with delicate scallop lace."
+      }
+    ];
+
+    let currentActiveProduct = null;
+    let currentSelectedSize = "M";
+    let cartItems = [];
+
+    const productsContainer = document.getElementById('products-container');
+    const listingView = document.getElementById('products-listing-view');
+    const detailView = document.getElementById('product-detail-view');
+    const mainDetailImage = document.getElementById('detail-image');
+    const thumbnailsContainer = document.getElementById('thumbnails-container');
+
+    function renderProducts() {
+      productsContainer.innerHTML = '';
+      products.forEach(product => {
+        const card = document.createElement('div');
+        card.className = 'product-card';
+        card.setAttribute('data-aos', 'fade-up');
+        card.onclick = () => showProductDetails(product.id);
+
+        card.innerHTML = `
+          <div class="card-img-wrap">
+            <img src="${product.images[0]}" alt="${product.name}">
+            <div class="view-pill"><i class="fa-regular fa-eye"></i> View Details</div>
+          </div>
+          <div class="product-info">
+            <h3>${product.name}</h3>
+            <div class="price">
+              Rs. ${product.price.toLocaleString()}
+              <span>In Stock</span>
+            </div>
+          </div>
+        `;
+        productsContainer.appendChild(card);
+      });
+
+      if (typeof AOS !== 'undefined') {
+        AOS.refresh();
+      }
+    }
+
+    function showProductDetails(productId) {
+      const product = products.find(p => p.id === productId);
+      if (!product) return;
+
+      currentActiveProduct = product;
+      currentSelectedSize = "M";
+
+      mainDetailImage.src = product.images[0];
+      document.getElementById('detail-title').innerText = product.name;
+      document.getElementById('detail-price').innerText = `Rs. ${product.price.toLocaleString()}`;
+      document.getElementById('detail-description').innerText = product.description;
+
+      document.querySelectorAll('.size-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if(btn.innerText === "M") btn.classList.add('active');
+      });
+
+      thumbnailsContainer.innerHTML = '';
+      product.images.forEach((imgSrc, index) => {
+        const thumb = document.createElement('div');
+        thumb.className = `thumb-btn ${index === 0 ? 'active' : ''}`;
+        thumb.innerHTML = `<img src="${imgSrc}" alt="view ${index + 1}">`;
+        
+        thumb.onclick = function() {
+          mainDetailImage.style.opacity = '0.35';
+          setTimeout(() => {
+            mainDetailImage.src = imgSrc;
+            mainDetailImage.style.opacity = '1';
+          }, 120);
+
+          document.querySelectorAll('.thumb-btn').forEach(btn => btn.classList.remove('active'));
+          this.classList.add('active');
+        };
+        thumbnailsContainer.appendChild(thumb);
+      });
+
+      listingView.style.display = 'none';
+      detailView.style.display = 'block';
+      document.getElementById('what-we-sell').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function goBackToProducts() {
+      detailView.style.display = 'none';
+      listingView.style.display = 'block';
+      document.getElementById('what-we-sell').scrollIntoView({ behavior: 'smooth' });
+      if (typeof AOS !== 'undefined') AOS.refresh();
+      ScrollTrigger.refresh();
+    }
+
+    function selectSize(element) {
+      document.querySelectorAll('.size-btn').forEach(btn => btn.classList.remove('active'));
+      element.classList.add('active');
+      currentSelectedSize = element.innerText;
+    }
+
+    // ==========================================
+    // CART FUNCTIONALITY
+    // ==========================================
+    function handleAddToCartFromDetail() {
+      if (!currentActiveProduct) return;
+
+      const existing = cartItems.find(item => item.id === currentActiveProduct.id && item.size === currentSelectedSize);
+      if (existing) {
+        existing.quantity += 1;
+      } else {
+        cartItems.push({
+          id: currentActiveProduct.id,
+          name: currentActiveProduct.name,
+          price: currentActiveProduct.price,
+          image: currentActiveProduct.images[0],
+          size: currentSelectedSize,
+          quantity: 1
+        });
+      }
+
+      updateCartUI();
+      showToast(`Added ${currentActiveProduct.name} (${currentSelectedSize}) to Bag!`);
+    }
+
+    function updateCartUI() {
+      const badge = document.getElementById('cartBadge');
+      const cartBody = document.getElementById('cartItemsBody');
+      const subtotalEl = document.getElementById('cartSubtotal');
+
+      const totalItems = cartItems.reduce((acc, item) => acc + item.quantity, 0);
+      const subtotal = cartItems.reduce((acc, item) => acc + (item.price * item.quantity), 0);
+
+      if (totalItems > 0) {
+        badge.innerText = totalItems;
+        badge.classList.add('active');
+      } else {
+        badge.innerText = '0';
+        badge.classList.remove('active');
+      }
+
+      subtotalEl.innerText = `Rs. ${subtotal.toLocaleString()}`;
+
+      if (cartItems.length === 0) {
+        cartBody.innerHTML = '<div class="empty-cart-msg">Your shopping bag is empty.</div>';
+        return;
+      }
+
+      cartBody.innerHTML = '';
+      cartItems.forEach((item, index) => {
+        const itemCard = document.createElement('div');
+        itemCard.className = 'cart-item-card';
+        itemCard.innerHTML = `
+          <img src="${item.image}" alt="${item.name}" class="cart-item-img">
+          <div class="cart-item-info">
+            <h4>${item.name}</h4>
+            <div class="cart-item-meta">Size: <strong>${item.size}</strong> | Qty: <strong>${item.quantity}</strong></div>
+            <div class="cart-item-price">Rs. ${(item.price * item.quantity).toLocaleString()}</div>
+          </div>
+          <button class="cart-item-remove" onclick="removeCartItem(${index})"><i class="fa-solid fa-trash-can"></i></button>
+        `;
+        cartBody.appendChild(itemCard);
+      });
+    }
+
+    function removeCartItem(index) {
+      cartItems.splice(index, 1);
+      updateCartUI();
+    }
+
+    function toggleCartDrawer() {
+      const drawer = document.getElementById('cartDrawer');
+      const overlay = document.getElementById('cartOverlay');
+      drawer.classList.toggle('open');
+      overlay.classList.toggle('open');
+    }
+
+    function showToast(text) {
+      const toast = document.getElementById('toastMsg');
+      toast.innerText = text;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2500);
+    }
+
+    // ==========================================
+    // RECEIPT MODAL & WHATSAPP REDIRECTION
+    // ==========================================
+    function openReceiptModal() {
+      if (cartItems.length === 0) {
+        alert("Your cart is empty! Please add products before placing order.");
+        return;
+      }
+
+      toggleCartDrawer();
+
+      const randomInvoice = '#MB-' + Math.floor(100000 + Math.random() * 900000);
+      document.getElementById('displayInvoiceId').innerText = randomInvoice;
+
+      const today = new Date().toLocaleDateString('en-GB', {
+        day: '2-digit', month: 'short', year: 'numeric'
+      });
+      document.getElementById('displayOrderDate').innerText = today;
+
+      const productNames = cartItems.map(i => `${i.name} (x${i.quantity})`).join(", ");
+      const totalQty = cartItems.reduce((acc, item) => acc + item.quantity, 0);
+      const allSizes = [...new Set(cartItems.map(i => i.size))].join(", ");
+      const totalPayable = cartItems.reduce((acc, item) => acc + (item.price * item.quantity), 0);
+
+      document.getElementById('autoProductName').innerText = productNames;
+      document.getElementById('autoQuantity').innerText = totalQty;
+      document.getElementById('autoSize').innerText = allSizes;
+      document.getElementById('autoTotalAmount').innerText = `Rs. ${totalPayable.toLocaleString()}`;
+
+      document.getElementById('receiptModal').classList.add('open');
+    }
+
+    function closeReceiptModal() {
+      document.getElementById('receiptModal').classList.remove('open');
+    }
+
+    document.getElementById('customerOrderForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const invoice = document.getElementById('displayInvoiceId').innerText;
+      const date = document.getElementById('displayOrderDate').innerText;
+      const product = document.getElementById('autoProductName').innerText;
+      const qty = document.getElementById('autoQuantity').innerText;
+      const size = document.getElementById('autoSize').innerText;
+      const totalAmount = document.getElementById('autoTotalAmount').innerText;
+
+      const name = document.getElementById('custName').value.trim();
+      const address = document.getElementById('custAddress').value.trim();
+      const payment = document.getElementById('custPayment').value;
+
+      const receiptMessage = 
+`🧾 *MB ATTIRE - OFFICIAL ORDER RECEIPT*
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+🆔 *Invoice ID:* ${invoice}
+📅 *Date:* ${date}
+
+👗 *PRODUCT DETAILS (LOCKED):*
+• *Product Name:* ${product}
+• *Quantity:* ${qty}
+• *Size:* ${size}
+• *Total Payable:* *${totalAmount}*
+
+👤 *CUSTOMER INFORMATION:*
+• *Customer Name:* ${name}
+• *Delivery Address:* ${address}
+• *Payment Method:* ${payment}
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+✨ _Order confirmed via MB Attire Official Website_`;
+
+      const whatsappURL = `https://api.whatsapp.com/send?phone=${OWNER_WHATSAPP_NUMBER}&text=${encodeURIComponent(receiptMessage)}`;
+      window.open(whatsappURL, '_blank');
+    });
+
+    function downloadReceiptImage() {
+      const container = document.getElementById('receiptContainer');
+      const invoice = document.getElementById('displayInvoiceId').innerText;
+
+      html2canvas(container, {
+        backgroundColor: '#14121f',
+        scale: 2
+      }).then(canvas => {
+        const link = document.createElement('a');
+        link.download = `MB-Receipt-${invoice}.png`;
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+      });
+    }
+
+    renderProducts();
+
+    // ==========================================
+    // 3. ABOUT SECTION (SINGLE SMOOTH PASS - NO DOUBLE JUMP)
+    // ==========================================
+    gsap.registerPlugin(ScrollTrigger);
+
+    const heading = document.getElementById("headingElement");
+    const headingWords = heading.innerText.trim().split(/\s+/);
+    heading.innerHTML = headingWords
+      .map((w) => `<span class="reveal-word gold-word">${w}</span>`)
+      .join(" ");
+
+    const paragraphs = document.querySelectorAll(".text-reveal");
+    paragraphs.forEach((el) => {
+      const words = el.innerText.trim().split(/\s+/);
+      el.innerHTML = words
+        .map((w) => `<span class="reveal-word">${w}</span>`)
+        .join(" ");
+    });
+
+    const allWords = document.querySelectorAll(".reveal-word");
+    const isMobile = window.innerWidth <= 768;
+    const scrollDistance = isMobile ? 1200 : 1800;
+
+    // Clean single ScrollTrigger without CSS conflicts
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#about",
+        start: "top top",
+        end: `+=${scrollDistance}`,
+        pin: true,
+        pinSpacing: true,
+        scrub: 1.2,
+        invalidateOnRefresh: true
+      }
+    });
+
+    tl.to(allWords, {
+      opacity: 1,
+      filter: "blur(0px)",
+      scale: 1,
+      stagger: 0.08,
+      ease: "power2.out"
+    });
+
+    // ==========================================
+    // 4. LUXURY FOOTER VERTICAL CUT REVEAL ANIMATION
+    // ==========================================
+    const cutTitle = document.getElementById("verticalCutText");
+    const rawString = "MB ATTIRE";
+    cutTitle.innerHTML = "";
+
+    rawString.split("").forEach((char) => {
+      if (char === " ") {
+        const space = document.createElement("span");
+        space.className = "cut-char-space";
+        cutTitle.appendChild(space);
+      } else {
+        const maskWrapper = document.createElement("span");
+        maskWrapper.className = "cut-char-mask";
+
+        const innerChar = document.createElement("span");
+        innerChar.className = "cut-char-inner";
+        innerChar.innerText = char;
+
+        maskWrapper.appendChild(innerChar);
+        cutTitle.appendChild(maskWrapper);
+      }
+    });
+
+    const footerTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#luxuryFooter",
+        start: "top 85%",
+        toggleActions: "play none none reverse"
+      }
+    });
+
+    footerTl.from(".cut-char-inner", {
+      yPercent: 120,
+      opacity: 0,
+      duration: 0.85,
+      stagger: 0.035,
+      ease: "power3.out"
+    })
+    .from(".anim-elem", {
+      y: 35,
+      opacity: 0,
+      duration: 0.7,
+      stagger: 0.08,
+      ease: "power2.out"
+    }, "-=0.4");
+
+    window.addEventListener("resize", () => {
+      ScrollTrigger.refresh();
+    });
+
+    // AOS Initialization
+    AOS.init({
+      duration: 450,
+      once: true,
+      offset: 40
+    });
+  </script>
+</body>
+</html>
